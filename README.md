@@ -22,7 +22,7 @@ This command requires you to have Composer installed globally, as explained in t
 
 Then, enable the bundle by adding the following line in the app/AppKernel.php file of your project:
 
-```
+```php
 <?php
 // app/AppKernel.php
 
@@ -48,7 +48,7 @@ class AppKernel extends Kernel
 
 Add following parameters to your parameters file:
 
-```
+```yaml
 liip_rokka_imagine.rokka.organization: 'your_rokka_organization'
 liip_rokka_imagine.rokka.api_key: 'your_rokka_api_key'
 liip_rokka_imagine.images_dir: '/path/to/the/images/dir/'
@@ -62,7 +62,7 @@ $ bin/console liip:rokka-imagine:config:sync
 
 Configuration of LiipImagineBundle should be adjusted as well:
 
-```
+```yaml
 # config/packages/imagine.yaml
 liip_imagine:
     driver: rokka
