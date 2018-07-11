@@ -1,0 +1,56 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Liip\RokkaImagineBundle\Command\:
+        resource: '../../Command/*'
+
+    Liip\RokkaImagineBundle\Config\:
+        resource: '../../Config/*'
+
+    Liip\RokkaImagineBundle\Factory\:
+        resource: '../../Factory/*'
+
+    Liip\RokkaImagineBundle\Config\Stack\Operation\TypeBuilderCollection:
+        arguments:
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\AutoRotateBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\BackgroundBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\CropBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\DownscaleBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\FlipBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\GrayscaleBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\InterlaceBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\PasteBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\RelativeResizeBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\ResizeBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\RotateBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\ScaleBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\StripBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\ThumbnailBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\UpscaleBuilder'
+            - '@Liip\RokkaImagineBundle\Config\Stack\Operation\Type\WatermarkBuilder'
+
+    liip_imagine.rokka:
+        class: Liip\RokkaImagineBundle\Imagine\Rokka\Imagine
+        autowire: false
+
+    Liip\RokkaImagineBundle\Imagine\Rokka\Imagine: "@liip_imagine.rokka"
+
+    liip_rokka_imagine.factory.rokka.client.template_helper_factory:
+        class: Liip\RokkaImagineBundle\Factory\Rokka\Client\TemplateHelperFactory
+
+    liip_rokka_imagine.config.rokka_credentials:
+        class: Liip\RokkaImagineBundle\Config\RokkaCredentials
+
+    imagine.cache.resolver.rokka:
+        class: Liip\RokkaImagineBundle\Imagine\Cache\Resolver\RokkaResolver
+        arguments:
+            - "@liip_rokka_imagine.factory.rokka.client.template_helper_factory"
+            - "@liip_rokka_imagine.config.rokka_credentials"
+            - "%liip_rokka_imagine.images_dir%"
+        tags:
+            - { name: "liip_imagine.cache.resolver", resolver: rokka }
+
+    Liip\RokkaImagineBundle\Imagine\Cache\Resolver\RokkaResolver: "@imagine.cache.resolver.rokka"
