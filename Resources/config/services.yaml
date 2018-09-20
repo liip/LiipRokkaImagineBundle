@@ -49,7 +49,6 @@ services:
         arguments:
             - "@liip_rokka_imagine.factory.rokka.client.template_helper_factory"
             - "@liip_rokka_imagine.config.rokka_credentials"
-            - "%liip_rokka_imagine.images_dir%"
         tags:
             - { name: "liip_imagine.cache.resolver", resolver: rokka }
 
