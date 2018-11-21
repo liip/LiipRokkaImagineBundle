@@ -1,6 +1,6 @@
 # LiipRokkaImagineBundle
 
-![Travis](https://travis-ci.org/liip/LiipRokkaImagineBundle.svg?branch=master)
+[![Travis Build](https://travis-ci.com/liip/LiipRokkaImagineBundle.svg?branch=master)](https://travis-ci.com/liip/LiipRokkaImagineBundle)
 
 ## Overview
 
