@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9bda43940a5b77ab134fd2a74219083",
+    "content-hash": "f8e1c4cde3ae0b3e424e2db7adf03d30",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -624,16 +624,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
                 "shasum": ""
             },
             "require": {
@@ -667,7 +667,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2018-11-20T15:27:04+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -2059,16 +2059,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v4.1.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "2474c5d4a5e3431fee2f6f0dddde9d34983d9ceb"
+                "reference": "dc98f111dbbecdddb0a7fbb204e00a0846299dbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/2474c5d4a5e3431fee2f6f0dddde9d34983d9ceb",
-                "reference": "2474c5d4a5e3431fee2f6f0dddde9d34983d9ceb",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/dc98f111dbbecdddb0a7fbb204e00a0846299dbc",
+                "reference": "dc98f111dbbecdddb0a7fbb204e00a0846299dbc",
                 "shasum": ""
             },
             "require": {
@@ -2087,7 +2087,7 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 },
                 "thanks": {
                     "name": "phpunit/phpunit",
@@ -2121,12 +2121,14 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:40:59+00:00"
+            "time": "2018-11-20T16:22:05+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "symfony/phpunit-bridge": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
