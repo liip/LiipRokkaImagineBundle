@@ -6,7 +6,6 @@
     "type": "symfony-bundle",
     "require": {
         "php": "^7.1",
-        "symfony/thanks": "^1.0",
         "symfony/console": "^3.4|^4.0",
         "monolog/monolog": "^1.23",
         "rokka/client": "^1.3",
