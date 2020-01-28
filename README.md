@@ -23,28 +23,14 @@ This command requires you to have Composer installed globally, as explained in t
 
 ### Step 2: Enable the Bundle
 
-Then, enable the bundle by adding the following line in the app/AppKernel.php file of your project:
+Then, enable the bundle:
 
 ```php
-<?php
-// app/AppKernel.php
-
-// ...
-class AppKernel extends Kernel
-{
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-
-            new \Liip\RokkaImagineBundle\LiipRokkaImagineBundle(),
-        );
-
-        // ...
-    }
-
-    // ...
-}
+// config/bundles.php
+return [
+    ...
+    Liip\RokkaImagineBundle\LiipRokkaImagineBundle::class => ['all' => true],
+];
 ```
 
 ### Step 3: Configure the Bundle
@@ -57,13 +43,13 @@ liip_rokka_imagine.rokka.api_key: 'your_rokka_api_key'
 liip_rokka_imagine.images_dir: '/path/to/the/images/dir/'
 ```
 
-Execute following command in order to export your defined filter and filter sets from LiipImagine configuration to Rokka service:
+Execute following command in order to export your defined filter and filter sets from LiipImagineBundle configuration to Rokka.io:
 
 ```
 $ bin/console liip:rokka-imagine:config:sync
 ```
 
-Configuration of LiipImagineBundle should be adjusted as well:
+To ouptut your images through rokka, adjust the LiipImagineBundle configuration to use `rokka` as cache:
 
 ```yaml
 # config/packages/imagine.yaml
