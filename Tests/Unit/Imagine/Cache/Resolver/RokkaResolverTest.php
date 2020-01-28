@@ -8,23 +8,24 @@ use Liip\RokkaImagineBundle\Config\RokkaCredentials;
 use Liip\RokkaImagineBundle\Exception\Imagine\NotImplementedException;
 use Liip\RokkaImagineBundle\Factory\Rokka\Client\TemplateHelperFactory;
 use Liip\RokkaImagineBundle\Imagine\Cache\Resolver\RokkaResolver;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Rokka\Client\TemplateHelper;
 
 class RokkaResolverTest extends TestCase
 {
     /**
-     * @var TemplateHelperFactory|\PHPUnit_Framework_MockObject_MockObject
+     * @var TemplateHelperFactory&MockObject
      */
     private $templateHelperFactoryMock;
 
     /**
-     * @var RokkaCredentials|\PHPUnit_Framework_MockObject_MockObject
+     * @var RokkaCredentials&MockObject
      */
     private $rokkaCredentialsMock;
 
     /**
-     * @var BundleConfig|\PHPUnit_Framework_MockObject_MockObject
+     * @var BundleConfig&MockObject
      */
     private $bundleConfigMock;
 
@@ -33,7 +34,7 @@ class RokkaResolverTest extends TestCase
      */
     private $model;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->templateHelperFactoryMock = $this->createMock(TemplateHelperFactory::class);
         $this->rokkaCredentialsMock = $this->createMock(RokkaCredentials::class);
@@ -46,7 +47,7 @@ class RokkaResolverTest extends TestCase
         );
     }
 
-    public function testIsStored()
+    public function testIsStored(): void
     {
         $this->assertTrue($this->model->isStored('any', 'any'));
     }
@@ -57,7 +58,7 @@ class RokkaResolverTest extends TestCase
      *
      * @dataProvider getResolveDataProvider
      */
-    public function testResolve(array $initialData, string $expected)
+    public function testResolve(array $initialData, string $expected): void
     {
         $imageDirectory = $initialData['img_dir'];
         $organization = $initialData['organization'];
@@ -67,39 +68,39 @@ class RokkaResolverTest extends TestCase
 
         $this->bundleConfigMock->expects($this->once())
             ->method('getImagesDirectory')
-            ->will($this->returnValue($imageDirectory));
+            ->willReturn($imageDirectory);
 
         $this->rokkaCredentialsMock->expects($this->once())
             ->method('getOrganization')
-            ->will($this->returnValue($organization));
+            ->willReturn($organization);
         $this->rokkaCredentialsMock->expects($this->once())
             ->method('getApiKey')
-            ->will($this->returnValue($apiKey));
+            ->willReturn($apiKey);
 
         $templateHelperMock = $this->createMock(TemplateHelper::class);
         $templateHelperMock->expects($this->once())
             ->method('getStackUrl')
             ->with($imageDirectory . $filePath, $filter, pathinfo($filePath, PATHINFO_EXTENSION))
-            ->will($this->returnValue('http://example.com/' . $filter . $imageDirectory . $filePath));
+            ->willReturn('http://example.com/' . $filter . $imageDirectory . $filePath);
 
         $this->templateHelperFactoryMock->expects($this->once())
             ->method('create')
             ->with($organization, $apiKey)
-            ->will($this->returnValue($templateHelperMock));
+            ->willReturn($templateHelperMock);
 
         $this->assertEquals($expected, $this->model->resolve($filePath, $filter));
     }
 
-    public function testStoreExpectsNotImplementedException()
+    public function testStoreExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
 
-        /** @var BinaryInterface|\PHPUnit_Framework_MockObject_MockObject $binaryMock */
+        /** @var BinaryInterface&MockObject $binaryMock */
         $binaryMock = $this->createMock(BinaryInterface::class);
         $this->model->store($binaryMock, 'any_path', 'any_filter');
     }
 
-    public function testRemoveExpectsNotImplementedException()
+    public function testRemoveExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
         $this->model->remove([], []);
