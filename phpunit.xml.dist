@@ -8,11 +8,11 @@
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
         forceCoversAnnotation="true"
-        bootstrap="./bootstrap.php">
+        bootstrap="./Tests/Unit/bootstrap.php">
 
     <testsuites>
         <testsuite name="liip/rokka-imagine-bundle test suite">
-            <directory suffix="Test.php">.</directory>
+            <directory suffix="Test.php">Tests/</directory>
         </testsuite>
     </testsuites>
 

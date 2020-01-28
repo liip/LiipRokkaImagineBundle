@@ -6,6 +6,7 @@ use Imagine\Image\BoxInterface;
 use Imagine\Image\Palette\Color\ColorInterface;
 use Liip\RokkaImagineBundle\Exception\Imagine\NotImplementedException;
 use Liip\RokkaImagineBundle\Imagine\Rokka\Imagine;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class ImagineTest extends TestCase
@@ -15,43 +16,43 @@ class ImagineTest extends TestCase
      */
     private $model;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->model = new Imagine();
     }
 
-    public function testCreateExpectsNotImplementedException()
+    public function testCreateExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
 
-        /** @var BoxInterface|\PHPUnit_Framework_MockObject_MockObject $boxMock */
+        /** @var BoxInterface&MockObject $boxMock */
         $boxMock = $this->createMock(BoxInterface::class);
         $this->model->create($boxMock);
     }
 
-    public function testOpenExpectsNotImplementedException()
+    public function testOpenExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
         $this->model->open('path');
     }
 
-    public function testLoadExpectsNotImplementedException()
+    public function testLoadExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
         $this->model->load('string');
     }
 
-    public function testReadExpectsNotImplementedException()
+    public function testReadExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
         $this->model->read('resource');
     }
 
-    public function testFontExpectsNotImplementedException()
+    public function testFontExpectsNotImplementedException(): void
     {
         $this->expectException(NotImplementedException::class);
 
-        /** @var ColorInterface|\PHPUnit_Framework_MockObject_MockObject $colorMock */
+        /** @var ColorInterface&MockObject $colorMock */
         $colorMock = $this->createMock(ColorInterface::class);
         $this->model->font('', '', $colorMock);
     }
