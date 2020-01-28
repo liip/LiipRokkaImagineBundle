@@ -7,7 +7,7 @@ When using [Rokka.io](https://rokka.io/) together with Symfony we recommend to u
 
 It takes your existing imagine configuration and generates Rokka stacks for you with the same name as the imagine filter set. It then uses the stacks from Rokka on the fly, so that you don't have to change anything in your code. It's nearly a drop-in replacement. 
 
-**NOTE: You should check that the images are still rendered correctly when using Rokka, there will be differences in the stacks vs. filters.**
+**NOTE: While we do testing for the conversion from LiipImagineBundle configuration to rokka stacks, there might still be visual differences, or bugs in the conversion. Please sanity check the generated stacks before switching a production website.**
 
 ## Installation
 
