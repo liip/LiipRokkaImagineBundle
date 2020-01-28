@@ -3,8 +3,11 @@
 [![Travis Build](https://travis-ci.com/liip/LiipRokkaImagineBundle.svg?branch=master)](https://travis-ci.com/liip/LiipRokkaImagineBundle)
 
 ## Overview
+When using [Rokka.io](https://rokka.io/) together with Symfony we recommend to use the [Rokka client bundle](https://github.com/rokka-io/rokka-client-bundle), but this bundle serves as a stepping stone and provides you with ability to use [Rokka.io](https://rokka.io/) service as a driver to [LiipImagineBundle](https://github.com/liip/LiipImagineBundle)
 
-This bundle provides you with ability to use [Rokka.io](https://rokka.io/) service as a driver to LiipImagineBundle
+It takes your existing imagine configuration and generates Rokka stacks for you with the same name as the imagine filter set. It then uses the stacks from Rokka on the fly, so that you don't have to change anything in your code. It's nearly a drop-in replacement. 
+
+**NOTE: While we do testing for the conversion from LiipImagineBundle configuration to rokka stacks, there might still be visual differences, or bugs in the conversion. Please sanity check the generated stacks before switching a production website.**
 
 ## Installation
 
@@ -65,6 +68,5 @@ Configuration of LiipImagineBundle should be adjusted as well:
 ```yaml
 # config/packages/imagine.yaml
 liip_imagine:
-    driver: rokka
     cache: rokka
 ```
