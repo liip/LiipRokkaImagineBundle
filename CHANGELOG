@@ -1,6 +1,9 @@
+# Changelog
 
-VERSION 1  PULL REQUESTS && MINOR BUGFIXES
-==========================================
+## 1.2.0
 
-   Version 1.1 - Pull requests && minor bugfixes
-      26/11/2018 15:18  1.1.0  initial release
+* Support for Symfony 5
+
+## 1.1.0
+
+* Pull requests && minor bugfixes
