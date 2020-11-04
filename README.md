@@ -1,6 +1,6 @@
 # LiipRokkaImagineBundle
 
-[![Travis Build](https://travis-ci.com/liip/LiipRokkaImagineBundle.svg?branch=master)](https://travis-ci.com/liip/LiipRokkaImagineBundle)
+[![Build Status](https://travis-ci.com/liip/LiipRokkaImagineBundle.svg?branch=master)](https://travis-ci.com/liip/LiipRokkaImagineBundle)
 
 ## Overview
 When using [Rokka.io](https://rokka.io/) together with Symfony we recommend to use the [Rokka client bundle](https://github.com/rokka-io/rokka-client-bundle), but this bundle serves as a stepping stone and provides you with ability to use [Rokka.io](https://rokka.io/) service as a driver to [LiipImagineBundle](https://github.com/liip/LiipImagineBundle)
